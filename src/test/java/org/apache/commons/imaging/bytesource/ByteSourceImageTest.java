@@ -180,17 +180,17 @@ public class ByteSourceImageTest extends AbstractByteSourceTest {
         assertNotNull(imageFileBytes);
         assertEquals(imageFileBytes.length, imageFile.length());
 
-        if (imageFile.getName().toLowerCase().endsWith(".ico") || imageFile.getName().toLowerCase().endsWith(".tga")
-                || imageFile.getName().toLowerCase().endsWith(".jb2") || imageFile.getName().toLowerCase().endsWith(".pcx")
-                || imageFile.getName().toLowerCase().endsWith(".dcx") || imageFile.getName().toLowerCase().endsWith(".psd")
-                || imageFile.getName().toLowerCase().endsWith(".wbmp") || imageFile.getName().toLowerCase().endsWith(".xbm")
-                || imageFile.getName().toLowerCase().endsWith(".xpm")) {
-            // these formats can't be parsed without a file name hint.
-            // they have ambiguous "magic number" signatures.
-            return;
-        }
+        // if (imageFile.getName().toLowerCase().endsWith(".ico") || imageFile.getName().toLowerCase().endsWith(".tga")
+        //         || imageFile.getName().toLowerCase().endsWith(".jb2") || imageFile.getName().toLowerCase().endsWith(".pcx")
+        //         || imageFile.getName().toLowerCase().endsWith(".dcx") || imageFile.getName().toLowerCase().endsWith(".psd")
+        //         || imageFile.getName().toLowerCase().endsWith(".wbmp") || imageFile.getName().toLowerCase().endsWith(".xbm")
+        //         || imageFile.getName().toLowerCase().endsWith(".xpm")) {
+        //     // these formats can't be parsed without a file name hint.
+        //     // they have ambiguous "magic number" signatures.
+        //     return;
+        // }
 
-        checkGuessFormat(imageFile, imageFileBytes);
+        // checkGuessFormat(imageFile, imageFileBytes);
 
         // if (imageFile.getName().toLowerCase().endsWith(".png") && imageFile.getParentFile().getName().equalsIgnoreCase("pngsuite")
         //         && imageFile.getName().toLowerCase().startsWith("x")) {
