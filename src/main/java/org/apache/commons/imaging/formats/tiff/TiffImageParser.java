@@ -77,17 +77,17 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
         // dimensions of the image that is being read. This method
         // returns the sub-image specification, if any, and leaves
         // further tests to the calling module.
-        if (params != null && params.isSubImageSet()) {
-            final int ix0 = 0;
-            final int iy0 = 0;
-            final int iwidth = 0;
-            final int iheight = 0;
-            // final int ix0 = params.getSubImageX();
-            // final int iy0 = params.getSubImageY();
-            // final int iwidth = params.getSubImageWidth();
-            // final int iheight = params.getSubImageHeight();
-            return new Rectangle(ix0, iy0, iwidth, iheight);
-        }
+        // if (params != null && params.isSubImageSet()) {
+        //     final int ix0 = 0;
+        //     final int iy0 = 0;
+        //     final int iwidth = 0;
+        //     final int iheight = 0;
+        //     final int ix0 = params.getSubImageX();
+        //     final int iy0 = params.getSubImageY();
+        //     final int iwidth = params.getSubImageWidth();
+        //     final int iheight = params.getSubImageHeight();
+        //     return new Rectangle(ix0, iy0, iwidth, iheight);
+        // }
         return null;
     }
 
