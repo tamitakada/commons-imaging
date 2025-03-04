@@ -78,10 +78,14 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
         // returns the sub-image specification, if any, and leaves
         // further tests to the calling module.
         if (params != null && params.isSubImageSet()) {
-            final int ix0 = params.getSubImageX();
-            final int iy0 = params.getSubImageY();
-            final int iwidth = params.getSubImageWidth();
-            final int iheight = params.getSubImageHeight();
+            final int ix0 = 0;
+            final int iy0 = 0;
+            final int iwidth = 0;
+            final int iheight = 0;
+            // final int ix0 = params.getSubImageX();
+            // final int iy0 = params.getSubImageY();
+            // final int iwidth = params.getSubImageWidth();
+            // final int iheight = params.getSubImageHeight();
             return new Rectangle(ix0, iy0, iwidth, iheight);
         }
         return null;
@@ -248,28 +252,28 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
         final int height = directory.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_LENGTH);
 
         final Rectangle subImage = checkForSubImage(params);
-        // if (subImage != null) {
-        //     // Check for valid subimage specification. The following checks
-        //     // are consistent with BufferedImage.getSubimage()
-        //     if (subImage.width <= 0) {
-        //         throw new ImagingException("Negative or zero subimage width.");
-        //     }
-        //     if (subImage.height <= 0) {
-        //         throw new ImagingException("Negative or zero subimage height.");
-        //     }
-        //     if (subImage.x < 0 || subImage.x >= width) {
-        //         throw new ImagingException("Subimage x is outside raster.");
-        //     }
-        //     if (subImage.x + subImage.width > width) {
-        //         throw new ImagingException("Subimage (x+width) is outside raster.");
-        //     }
-        //     if (subImage.y < 0 || subImage.y >= height) {
-        //         throw new ImagingException("Subimage y is outside raster.");
-        //     }
-        //     if (subImage.y + subImage.height > height) {
-        //         throw new ImagingException("Subimage (y+height) is outside raster.");
-        //     }
-        // }
+        if (subImage != null) {
+            // Check for valid subimage specification. The following checks
+            // are consistent with BufferedImage.getSubimage()
+            if (subImage.width <= 0) {
+                throw new ImagingException("Negative or zero subimage width.");
+            }
+            if (subImage.height <= 0) {
+                throw new ImagingException("Negative or zero subimage height.");
+            }
+            if (subImage.x < 0 || subImage.x >= width) {
+                throw new ImagingException("Subimage x is outside raster.");
+            }
+            if (subImage.x + subImage.width > width) {
+                throw new ImagingException("Subimage (x+width) is outside raster.");
+            }
+            if (subImage.y < 0 || subImage.y >= height) {
+                throw new ImagingException("Subimage y is outside raster.");
+            }
+            if (subImage.y + subImage.height > height) {
+                throw new ImagingException("Subimage (y+height) is outside raster.");
+            }
+        }
 
         int samplesPerPixel = 1;
         final TiffField samplesPerPixelField = directory.findField(TiffTagConstants.TIFF_TAG_SAMPLES_PER_PIXEL);
@@ -364,7 +368,7 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
         final ImageDataReader dataReader = imageData.getDataReader(directory, photometricInterpreter, bitsPerPixel, bitsPerSample, predictor, samplesPerPixel,
                 width, height, compression, planarConfiguration, byteOrder);
 
-        final ImageBuilder iBuilder = dataReader.readImageData(null, hasAlpha, isAlphaPremultiplied);
+        final ImageBuilder iBuilder = dataReader.readImageData(subImage, hasAlpha, isAlphaPremultiplied);
         return iBuilder.getBufferedImage();
     }
 
