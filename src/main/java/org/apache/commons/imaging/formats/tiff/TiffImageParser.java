@@ -359,7 +359,7 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
             }
         }
 
-        // final AbstractTiffImageData imageData = directory.getTiffImageData();
+        final AbstractTiffImageData imageData = directory.getTiffImageData();
 
         // final ImageDataReader dataReader = imageData.getDataReader(directory, photometricInterpreter, bitsPerPixel, bitsPerSample, predictor, samplesPerPixel,
         //         width, height, compression, planarConfiguration, byteOrder);
