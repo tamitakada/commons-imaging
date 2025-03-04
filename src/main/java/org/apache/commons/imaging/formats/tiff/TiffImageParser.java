@@ -173,11 +173,11 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
         final TiffContents contents = tiffReader.readDirectories(byteSource, true, formatCompliance);
         final List<BufferedImage> results = new ArrayList<>();
         for (int i = 0; i < contents.directories.size(); i++) {
-            final TiffDirectory directory = contents.directories.get(i);
-            final BufferedImage result = directory.getTiffImage(tiffReader.getByteOrder(), null);
-            if (result != null) {
-                results.add(result);
-            }
+            // final TiffDirectory directory = contents.directories.get(i);
+            // final BufferedImage result = directory.getTiffImage(tiffReader.getByteOrder(), null);
+            // if (result != null) {
+            //     results.add(result);
+            // }
         }
         return results;
     }
