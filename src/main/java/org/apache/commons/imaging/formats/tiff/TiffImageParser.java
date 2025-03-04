@@ -247,7 +247,7 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
         final int width = directory.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_WIDTH);
         final int height = directory.getSingleFieldValue(TiffTagConstants.TIFF_TAG_IMAGE_LENGTH);
 
-        // final Rectangle subImage = checkForSubImage(params);
+        final Rectangle subImage = checkForSubImage(params);
         // if (subImage != null) {
         //     // Check for valid subimage specification. The following checks
         //     // are consistent with BufferedImage.getSubimage()
@@ -365,8 +365,7 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
                 width, height, compression, planarConfiguration, byteOrder);
 
         final ImageBuilder iBuilder = dataReader.readImageData(null, hasAlpha, isAlphaPremultiplied);
-        // return iBuilder.getBufferedImage();
-        return null;
+        return iBuilder.getBufferedImage();
     }
 
     @Override
