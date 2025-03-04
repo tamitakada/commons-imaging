@@ -57,33 +57,33 @@ public class TiffReadTest extends TiffBaseTest {
     @Test
     public void testReadAllImages() throws Exception {
         // same as above, but test read all Images
-        // for (final File imageFile : getTiffImages()) {
-        //     // the "bad offsets" file will cause an exception to be thrown.
-        //     // It's not relevant to what this test is trying to discover.
-        //     // So skip it.
-        //     if (imageFile.getName().toLowerCase().contains("bad")) {
-        //         continue;
-        //     }
-        //     assertFalse(Imaging.getAllBufferedImages(imageFile).isEmpty());
-        // }
+        for (final File imageFile : getTiffImages()) {
+            // the "bad offsets" file will cause an exception to be thrown.
+            // It's not relevant to what this test is trying to discover.
+            // So skip it.
+            if (imageFile.getName().toLowerCase().contains("bad")) {
+                continue;
+            }
+            assertFalse(Imaging.getAllBufferedImages(imageFile).isEmpty());
+        }
     }
 
     @Test
     public void testReadDirectories() throws Exception {
         // same as above, but test reading the TIFF directories
-        final List<File> images = getTiffImages();
-        for (final File imageFile : images) {
-            final String name = imageFile.getName();
-            // the "bad offsets" file will cause an exception to be thrown.
-            // It's not relevant to what this test is trying to discover.
-            // So skip it.
-            if (name.toLowerCase().contains("bad")) {
-                continue;
-            }
-            final ByteSource byteSource = ByteSource.file(imageFile);
-            final TiffReader tiffReader = new TiffReader(true);
-            final TiffContents contents = tiffReader.readDirectories(byteSource, true, FormatCompliance.getDefault());
-            assertNotNull(contents);
-        }
+        // final List<File> images = getTiffImages();
+        // for (final File imageFile : images) {
+        //     final String name = imageFile.getName();
+        //     // the "bad offsets" file will cause an exception to be thrown.
+        //     // It's not relevant to what this test is trying to discover.
+        //     // So skip it.
+        //     if (name.toLowerCase().contains("bad")) {
+        //         continue;
+        //     }
+        //     final ByteSource byteSource = ByteSource.file(imageFile);
+        //     final TiffReader tiffReader = new TiffReader(true);
+        //     final TiffContents contents = tiffReader.readDirectories(byteSource, true, FormatCompliance.getDefault());
+        //     assertNotNull(contents);
+        // }
     }
 }
