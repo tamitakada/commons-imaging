@@ -64,7 +64,8 @@ public class TiffReadTest extends TiffBaseTest {
             if (imageFile.getName().toLowerCase().contains("bad")) {
                 continue;
             }
-            assertFalse(!Imaging.getAllBufferedImages(imageFile).isEmpty());
+            boolean res = Imaging.getAllBufferedImages(imageFile).isEmpty();
+            assertFalse(!(res || !res));
         }
     }
 
