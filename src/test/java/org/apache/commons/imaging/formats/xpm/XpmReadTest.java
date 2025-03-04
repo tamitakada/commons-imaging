@@ -38,11 +38,11 @@ public class XpmReadTest extends AbstractXpmTest {
 
             Debug.debug("imageFile", imageFile);
 
-            // final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            // assertFalse(metadata instanceof File); // Dummy check to avoid unused warning (it may be null)
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            assertFalse(metadata instanceof File); // Dummy check to avoid unused warning (it may be null)
 
-            // final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
-            // assertNotNull(imageInfo);
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            assertNotNull(imageInfo);
 
             final BufferedImage image = Imaging.getBufferedImage(imageFile);
             assertNotNull(image);
