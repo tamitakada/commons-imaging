@@ -359,13 +359,14 @@ public class TiffImageParser extends AbstractImageParser<TiffImagingParameters> 
             }
         }
 
-        final AbstractTiffImageData imageData = directory.getTiffImageData();
+        // final AbstractTiffImageData imageData = directory.getTiffImageData();
 
-        final ImageDataReader dataReader = imageData.getDataReader(directory, photometricInterpreter, bitsPerPixel, bitsPerSample, predictor, samplesPerPixel,
-                width, height, compression, planarConfiguration, byteOrder);
+        // final ImageDataReader dataReader = imageData.getDataReader(directory, photometricInterpreter, bitsPerPixel, bitsPerSample, predictor, samplesPerPixel,
+        //         width, height, compression, planarConfiguration, byteOrder);
 
-        final ImageBuilder iBuilder = dataReader.readImageData(null, hasAlpha, isAlphaPremultiplied);
-        return iBuilder.getBufferedImage();
+        // final ImageBuilder iBuilder = dataReader.readImageData(null, hasAlpha, isAlphaPremultiplied);
+        // return iBuilder.getBufferedImage();
+        return null;
     }
 
     @Override
